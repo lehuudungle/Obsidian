@@ -97,3 +97,36 @@ Ví dụ:
             }).debounce(.milliseconds(100), scheduler: MainScheduler.instance)
 ```
 **<span style="color:#ff0000">throttle</span>**: ko quan tâm source dừng lại lúc nào, cứ sau 1 khoảng thời gian thì sẽ phát ra giá trị 
+
+<span style="color:rgb(0, 176, 240)">share(replay: 2)</span>
+
+sẽ có 2 giá trị gần nhất được bắn cho subscript  được thực hiện sau hàm onNext: 
+```**let** subject = PublishSubject<Int>()
+        **let** observable = subject.share(replay: 2)
+
+  
+
+        // Subscriber đầu tiên
+
+        **let** subscription1 = observable.subscribe(onNext: { value **in**
+            print("Subscriber 1: \(value)")
+        })
+
+        // Phát một vài giá trị
+
+        subject.onNext(1)
+        subject.onNext(2)
+        subject.onNext(3)
+
+        // Subscriber thứ hai
+        **let** subscription2 = observable.subscribe(onNext: { value **in**
+            print("Subscriber 2: \(value)")
+        })
+        
+Kết quả:
+Subscriber 1: 1
+Subscriber 1: 2
+Subscriber 1: 3
+Subscriber 2: 2
+Subscriber 2: 3
+```
