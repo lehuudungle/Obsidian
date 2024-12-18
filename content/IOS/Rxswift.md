@@ -130,3 +130,7 @@ Subscriber 1: 3
 Subscriber 2: 2
 Subscriber 2: 3
 ```
+
+
+<span style="color:rgb(255, 0, 0)">Dispose và Dispobag</span> 
+https://fxstudio.dev/rxswift-disposebag/
