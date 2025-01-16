@@ -134,3 +134,12 @@ Subscriber 2: 3
 
 <span style="color:rgb(255, 0, 0)">Dispose và Dispobag</span> 
 https://fxstudio.dev/rxswift-disposebag/
+`compactMap`: Áp dụng một phép biến đổi lên mỗi phần tử của mảng và trả về một mảng mới chỉ chứa các kết quả không phải là `nil`
+```Swift
+let strings = ["1", "2", "three", "4", "five"]
+let mappedNumbers = strings.map { Int($0) }
+print(mappedNumbers) // Kết quả sẽ là [Optional(1), Optional(2), nil, Optional(4), nil]
+```
+```Swift
+let strings = ["1", "2", "three", "4", "five"] let compactMappedNumbers = strings.compactMap { Int($0) } print(compactMappedNumbers) // Kết quả sẽ là [1, 2, 4]
+```
