@@ -34,3 +34,26 @@ getProfile(@Request() req) {
  return { profile: req.user };
 }
 ```
+
+Flow dùng passport:
+Request
+  ↓
+1️⃣ <span style="color:rgb(146, 208, 80)">canActivate</span>(context) -<span style="color:rgb(255, 255, 0)"> LUÔN được gọi nhưng có thể ko cần implement dùng mặc định </span>
+  ↓
+  ├─ Custom logic (check @Public(), roles, etc.)
+  │  ├─ return true → STOP (bypass authentication)
+  │  └─ return false → STOP (reject request)
+  │
+  └─ super.<span style="color:rgb(146, 208, 80)">canActivate</span>(context) → Gọi Passport AuthGuard
+     ↓
+     2️⃣ Extract credentials (token, username/password, etc.)
+     ↓
+     3️⃣ Verify credentials
+     ↓
+     4️⃣ Strategy.validate() - Transform payload to user
+     ↓
+     5️⃣ handleRequest(err, user, info) - ĐƯỢC GỌI Ở ĐÂY (<span style="color:rgb(255, 255, 0)">hàm này có thể gọi hoặc không</span>)
+     ↓
+     6️⃣ req.user = user
+     ↓
+Route Handler
