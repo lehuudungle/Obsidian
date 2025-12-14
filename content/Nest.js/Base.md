@@ -16,7 +16,7 @@ lệnh : <span style="color:rgb(0, 176, 240)">nest g resource auth --no-spec</sp
 <span style="color:rgb(255, 255, 0)">@Public()</span> : đánh dấu router api này ko cần token 
 
 ```typescrip 
-privider như kiểu bạn muuốn xe gì, useClass tôi cần xe honda
+provide như kiểu bạn muuốn xe gì, useClass tôi cần xe honda
 Set global app(#### Enable authentication globally: https://docs.nestjs.com/recipes/passport#implementing-passport-local)
 
 {
@@ -57,3 +57,34 @@ Request
      6️⃣ req.user = user
      ↓
 Route Handler
+
+
+<span style="color:rgb(255, 0, 0)">@Injectable()</span> : được hiểu là 1 decoderator khiến nest.js hiểu rằng class này sẽ được quản lý IOC container giúp cho ở 1 class ko cần khởi tạo class đươc khai bao với từ khoá này 
+chỉ cần viết: 
+<span style="color:rgb(0, 176, 240)">constructor(private catsService: CatsService) {}</span>
+
+- [@Controller()](vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html) = đây là controller → tự động là provider → có thể inject service vào.
+- `@Injectable()` = đây là service/provider → có thể inject vào controller hoặc service khác.
+
+<span style="color:rgb(146, 208, 80)">UsersModule.imports </span>→ MongooseModule.forFeature([...]) 
+    ↓
+    khai báo model User này được sử dụng trong module UsersModule,
+    ví dụ module khác mà muốn sử dụng model User thì <span style="color:rgb(255, 0, 0)">ta export UsersModule để module khác sử dụng chứ ko khai báo lại một lần nữa MongooseModule.forFeature([...])</span>
+    ↓
+<span style="color:rgb(146, 208, 80)">UsersService.constructor</span> → @InjectModel(User.name)
+    ↓
+    Lấy model User từ container, tiêm vào UsersService
+    ↓
+<span style="color:rgb(146, 208, 80)">UsersController.constructor</span> → inject UsersService
+    ↓
+    Controller dùng Service, Service dùng Model để query DB
+
+<h2>Pipe</h2>
+Pipe: muốn validate cho các thuộc tính của class DTO ta sẽ dùng thằng pipe để validate các param từ request gửi lên trước khi mình handle logic gọi hàm service
+Tác dụng thứ 2: convert kiểu dữ liệu 
+
+Chú ý muốn sử dụng lib: class-validator thì phải config thêm ở main.ts đoạn code: 
+app.useGlobalPipes(new ValidationPipe());
+<span style="color:rgb(112, 48, 160)">Cần học kĩ chương này</span>
+
+
