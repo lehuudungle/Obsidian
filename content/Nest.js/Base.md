@@ -79,7 +79,7 @@ chỉ cần viết:
     ↓
     Controller dùng Service, Service dùng Model để query DB
 
-<h2>Pipe</h2>
+<span style="color:rgb(255, 0, 0)"><h2>Pipe</h2></span>
 Pipe: muốn validate cho các thuộc tính của class DTO ta sẽ dùng thằng pipe để validate các param từ request gửi lên trước khi mình handle logic gọi hàm service
 Tác dụng thứ 2: convert kiểu dữ liệu 
 
@@ -88,3 +88,20 @@ app.useGlobalPipes(new ValidationPipe());
 <span style="color:rgb(112, 48, 160)">Cần học kĩ chương này</span>
 
 
+
+<span style="color:rgb(255, 0, 0)"><h2>Passport</h2></span>
+Nếu một module sử dụng 1 module khác cần phải import Modules đấy vào :
+```
+import { Module } from '@nestjs/common';
+import { AuthService } from './auth.service';
+import { UsersModule } from 'src/users/users.module';
+
+@Module({
+  providers: [AuthService],
+  imports: [UsersModule], // import module này vào 
+})
+export class AuthModule {}
+
+```
+tiếp đến thằng userService được sử dụng ở auth service thì cần export thằng UserService ra để thằng khác sử dụng 
+![[Screenshot 2025-12-14 at 15.56.24.png]]
