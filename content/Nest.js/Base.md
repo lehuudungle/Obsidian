@@ -107,11 +107,14 @@ tiếp đến thằng userService được sử dụng ở auth service thì c�
 
 ![[Screenshot 2025-12-14 at 15.56.24.png]]
 
-<h2>Guard</h2> là một middleware (người bảo vệ ), can thiệp req => guard => response
+<span style="color:rgb(255, 0, 0)"><h2>Guard</h2></span> là một middleware (người bảo vệ ), can thiệp req => guard => response
 check return false: trả về lỗi
 check return true: đi tiếp
-
+<span style="color:rgb(255, 0, 0)">
+</span>
+<span style="color:rgb(255, 0, 0)">Import, provider trong Modules</span>
 ![[Screenshot 2025-12-15 at 01.29.10.png]]
 giải thích :
-imports dùng để import các module 
-providers: dùng để cung cấp 
+<span style="color:rgb(255, 0, 0)">imports</span> dùng để import các module 
+<span style="color:rgb(255, 0, 0)">providers</span>: dùng để cung cấp các serveice, guard của chính module đó hoặc của module khác được sử dụng thông DI (khởi tạo ở hàm constructor).
+![[Screenshot 2025-12-15 at 01.32.13.png]]
