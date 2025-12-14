@@ -106,3 +106,7 @@ export class AuthModule {}
 tiếp đến thằng userService được sử dụng ở auth service thì cần export thằng UserService ra để thằng khác sử dụng 
 
 ![[Screenshot 2025-12-14 at 15.56.24.png]]
+
+<h2>Guard</h2> là một middleware (người bảo vệ ), can thiệp req => guard => response
+check return false: trả về lỗi
+check return true: đi tiếp
