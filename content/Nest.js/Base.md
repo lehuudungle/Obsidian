@@ -110,3 +110,8 @@ tiếp đến thằng userService được sử dụng ở auth service thì c�
 <h2>Guard</h2> là một middleware (người bảo vệ ), can thiệp req => guard => response
 check return false: trả về lỗi
 check return true: đi tiếp
+
+![[Screenshot 2025-12-15 at 01.29.10.png]]
+giải thích :
+imports dùng để import các module 
+providers: dùng để cung cấp 
