@@ -104,4 +104,5 @@ export class AuthModule {}
 
 ```
 tiếp đến thằng userService được sử dụng ở auth service thì cần export thằng UserService ra để thằng khác sử dụng 
+
 ![[Screenshot 2025-12-14 at 15.56.24.png]]
