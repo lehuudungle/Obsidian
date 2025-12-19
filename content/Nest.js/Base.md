@@ -52,7 +52,7 @@ Request
      ↓
      4️⃣ Strategy.validate() - Transform payload to user
      ↓
-     5️⃣ handleRequest(err, user, info) - ĐƯỢC GỌI Ở ĐÂY (<span style="color:rgb(255, 255, 0)">hàm này có thể gọi hoặc không</span>)
+     5️⃣ handleRequest(err, user, info) - ĐƯỢC GỌI Ở ĐÂY (<span style="color:rgb(255, 255, 0)">hàm này có thể gọi hoặc không nhưng chú ý là nếu hàm canActive được gọi thì hàm này sẽ được gọi /span>)
      ↓
      6️⃣ req.user = user
      ↓
