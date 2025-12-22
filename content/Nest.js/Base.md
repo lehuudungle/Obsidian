@@ -52,14 +52,15 @@ Request
      ↓
      4️⃣ Strategy.validate() - Transform payload to user
      ↓
-     5️⃣ handleRequest(err, user, info) - ĐƯỢC GỌI Ở ĐÂY (~={red}hàm này có thể gọi hoặc không nhưng chú ý là nếu hàm canActive được gọi thì hàm này sẽ được gọi /span>)
+     5️⃣ handleRequest(err, user, info) - ĐƯỢC GỌI Ở ĐÂY (~={red}hàm này có thể gọi hoặc không nhưng chú ý là nếu hàm canActive được gọi thì hàm này sẽ được gọi)=~
+     
      ↓
      6️⃣ req.user = user
      ↓
 Route Handler
 
 
-~={orange}@Injectable=~: được hiểu là 1 decoderator khiến nest.js hiểu rằng class này sẽ được quản lý IOC container giúp cho ở 1 class ko cần khởi tạo class đươc khai bao với từ khoá này 
+~={yellow}@Injectable=~: được hiểu là 1 decoderator khiến nest.js hiểu rằng class này sẽ được quản lý IOC container giúp cho ở 1 class ko cần khởi tạo class đươc khai bao với từ khoá này 
 chỉ cần viết: 
 ~={red}constructor(private catsService: CatsService) {}=~
 
