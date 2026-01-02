@@ -119,3 +119,18 @@ giải thích :
 ~={red}imports=~ dùng để import các module 
 ~={red}providers=~: dùng để cung cấp các serveice, guard của chính module đó hoặc của module khác được sử dụng thông DI (khởi tạo ở hàm constructor).
 ![[Screenshot 2025-12-15 at 01.32.13.png]]
+
+
+~={yellow}https://www.npmjs.com/package/api-query-params và REF=~
+Ref: được định nghĩa trong schema để nói cho moongo database rằng cần lần bảng nào trong database.
+
+Trong thư viện này có 2 field rất quan trọng : (Xem ví dụ role.serveice)
+- nếu api truyền populate: thì lấy dữ liệu collection  liên kết  thì ở moongo sẽ dùng lệnh .populate để lấy dữ liệu collection
+
+	```
+	return await this.roleModel.findById(id).populate({
+      path: 'permissions',
+      select: { _id: 1, apiPath: 1, name: 1, method: 1 },
+    });
+	```
+- nếu api truyền fields: 
