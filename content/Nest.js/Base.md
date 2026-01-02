@@ -130,7 +130,8 @@ Trong thư viện này có 2 field rất quan trọng : (Xem ví dụ role.serve
 	```
 	return await this.roleModel.findById(id).populate({
       path: 'permissions',
-      select: { _id: 1, apiPath: 1, name: 1, method: 1 },
+      select: { _id: 1, apiPath: 1, name: 1, method: 1 }, // 1 là thêm trường này
+      // -1 là bỏ trường này đi
     });
 	```
-- nếu api truyền fields: 
+- nếu api truyền fields: thì ở code là trường projection: giúp chọn trườnh nào được trả về , trường nào ko trả về . 
